@@ -15,7 +15,6 @@ import { ProductServicesService } from './services/product.service';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { HomeComponent } from './home/home.component';
 import { ManagerComponent } from './manager/manager.component';
-import { ManagerComponent } from './manager/manager.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule ],

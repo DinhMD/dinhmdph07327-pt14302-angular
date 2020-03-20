@@ -1,0 +1,58 @@
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title">Insert Item:</h4>
+		</div>
+		<form>
+			<div class="modal-body">
+				<div style="margin-left:10px;">
+					<p class="message">{{message}}</p>
+					<form>
+						<div class="form-group ">
+							<label for="idinput">ID</label>
+
+							<input id="idinput" class="form-control" placeholder="  This input has been autofilled!" disabled>
+					</div>
+							<div class="form-group">
+								<label for="nameinput">Name </label> <br>
+								<input type="text" #name="ngModel" (keyup) = "setbordercolor()" name="namecontrol" class="form-control namecontrol" id="nameinput" [(ngModel)]="produc.ten"  placeholder="  Item name.." required>
+
+								<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+									<div *ngIf="name.errors.required">
+										Name is required.
+									</div>
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label for="priceinput">Price</label>
+								<input  type="number" #price="ngModel" (keyup) = "setbordercolor()" name="pricecontrol" class="form-control pricecontrol" id="priceinput" [(ngModel)]="produc.gia" placeholder="  Item price.." required>
+
+                <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+									<div *ngIf="price.errors.required">
+										Prive is required.
+									</div>
+								</div>
+
+							</div>
+								<div class="form-group">
+									<label for="descinput">Desc</label>
+									<textarea name="desccontrol" class="form-control" id="descinput" [(ngModel)]="produc.mota" rows="3" placeholder="  Item description.."></textarea>
+								</div>
+								<div class="form-group">
+									<label for="imginput">Image</label>
+									<textarea name="imgcontrol" class="form-control" id="imginput" [(ngModel)]="produc.anh" #img rows="3" placeholder="  Just a link.."></textarea>
+								</div>
+					</form>
+				</div>
+				<div style="margin:20px 0px 50px 150px;" class="col">
+					<img src="{{img.value}}" height="200" alt="">
+      </div>
+				</div>
+				<div class="modal-footer">
+					<button (click)="additem(name.value, price.value)" type="sudmit" class="btn btn-success" >Save</button>
+					<button (click)="setnullmessage()" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+		</form>
+	</div>
+</div>

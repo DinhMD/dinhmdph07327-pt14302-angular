@@ -1,0 +1,21 @@
+
+	<div class="modal-dialog">
+		<div class="modal-content" *ngIf="produc">
+			<div class="modal-header">
+				<h4 class="modal-title">Item: {{produc.ten}}</h4>
+			</div>
+			<div class="modal-body row">
+				<div class="col">
+					<p><strong>Description: </strong></p>
+					<p><span class="infor">{{produc.mota}}</span></p>
+					<p><strong>Price:</strong> $<span class="infor">{{produc.gia}}</span></p>
+				</div>
+			  <div class="col">
+		    	<img src="{{produc.anh}}" alt="" height="200"/>
+		    </div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>

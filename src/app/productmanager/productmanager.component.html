@@ -1,0 +1,52 @@
+<table class="table">
+	<thead>
+		<tr class="table-info">
+			<th>ID</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Desc</th>
+			<th>Action</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor='let sp of sanpham' scope="row" class="table-hover">
+			<td class="table-secondary">{{sp.id}}</td>
+			<td class="table-secondary">{{sp.ten}}</td>
+			<td class="table-secondary">${{sp.gia}}</td>
+			<td class="table-secondary">{{sp.mota}}</td>
+			<td class="table-warning">
+				<button (click)="showinfor(sp)" class="btn btn-warning" data-toggle="modal" data-target="#myModalDel">Delete</button>
+			</td>
+			<td class="table-danger">
+				<button (click)="showinfor(sp)" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Description</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<button (click)="showinfor(sp)" class="btn btn-primary" data-toggle="modal" data-target="#myModaladd">Add Item</button>
+  <app-product-add class="modal fade" id="myModaladd" role="dialog"></app-product-add>
+<!--Popup form details-->
+		<app-product-details class="modal fade" id="myModal" role="dialog" [data]="produc"></app-product-details>
+<!--Popup form Delete-->
+	<div class="modal fade" id="myModalDel" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content" *ngIf="produc">
+			<div class="modal-header">
+				<h4 class="modal-title">Message: <h5>Bạn muốn xóa sản phẩm này không?</h5>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div>
+					<img src="{{produc.anh}}" alt="" height="200"/>
+					<p style="margin-top: 5px;"><span class="infor"><strong>Name: </strong>{{produc.ten}}</span></p>
+				</div>
+				<div>
+				</div>
+				<div class="modal-footer">
+					<button (click)="removeitem(produc.id)" data-dismiss="modal" class="btn btn-warning">Yes</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+  </div>

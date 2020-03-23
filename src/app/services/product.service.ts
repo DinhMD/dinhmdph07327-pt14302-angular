@@ -17,6 +17,9 @@ export class ProductServicesService {
   }
 
   removeProduct(id){
-   return this.items = this.items.filter(items => items.id != id);
+   return this.items = this.items.filter(sp => sp.id != id);
+  }
+  getDetail(id){
+    return this.items.find(product => product.id == id);
   }
 }

@@ -15,7 +15,7 @@ export class ProductmanagerComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.sanpham = this.proService.getProduct();
+    this.proService.getProducts().subscribe(response => this.sanpham = response, error => console.log(error));
   }
   
   removeitem(id){

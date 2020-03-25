@@ -10,12 +10,14 @@ import { ProductServicesService } from "../services/product.service";
 export class ProductAddComponent implements OnInit {
   constructor(private proService: ProductServicesService) {}
   fullitem: products[];
-  ngOnInit() {}
+  ngOnInit() {
+    this.proService.getProducts().subscribe(response => this.fullitem = response, error => console.log(error));
+  }
   produc: products = new products();
   message;
   additem(name, price) {
     if (!(name == "" || price == "")) {
-      this.fullitem = this.proService.getProduct();
+      this.proService.getProducts().subscribe(response => this.fullitem = response, error => console.log(error));
       let newid = 1;
       if (this.fullitem.length > 0) {
         console.log(this.fullitem[this.fullitem.length - 1].id);

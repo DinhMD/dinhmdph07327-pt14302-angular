@@ -1,6 +1,6 @@
 <div class="row" id='prolist'>
-	<div class="card h-100" class="col-lg-4 col-md-6 mb-4 cardsp" *ngFor='let sp of product'>
-		<a routerLink="/productdetail/{{sp.id}}"><img class="card-img-top" src="{{sp.anh}}" height="250" alt=""></a>
+	<div class="card h-100" class="col-lg-4 col-md-6 mb-4 cardsp" *ngFor='let sp of product' (click)="showinfor(sp)"data-toggle="modal" data-target="#myModal2">
+		<a  (click)="showinfor(sp)"  data-toggle="modal" data-target="#myModal2"><img class="card-img-top" src="{{sp.anh}}" height="250" alt=""></a>
 			<div class="card-body">
 				<h4 class="card-title">
 					<a href="#" (click)="showinfor(sp)" data-toggle="modal" data-target="#myModal2">{{sp.ten}}</a>
